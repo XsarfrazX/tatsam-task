@@ -49,7 +49,7 @@ public interface UsersApi {
         @ApiResponse(code = 422, message = "Unprocessable entity in case user's priority already exists", response = String.class) })
     @PostMapping(
         value = "/users",
-        produces = { "application/json" },
+        produces = { "application/json", "text/plain" },
         consumes = { "application/json" }
     )
     default ResponseEntity<String> usersPost(@ApiParam(value = "" ,required=true )  @Valid @RequestBody User user) {
@@ -74,7 +74,7 @@ public interface UsersApi {
         @ApiResponse(code = 404, message = "Not found", response = String.class) })
     @GetMapping(
         value = "/users/{username}",
-        produces = { "application/json" }
+        produces = { "application/json" , "text/plain" }
     )
     default ResponseEntity<User> usersUsernameGet(@PathVariable String username) {
         getRequest().ifPresent(request -> {

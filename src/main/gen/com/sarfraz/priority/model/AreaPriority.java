@@ -20,6 +20,7 @@ public class AreaPriority   {
   private Area area;
 
   @JsonProperty("priority")
+  @Size(min = 1)
   private Integer priority;
 
   /**

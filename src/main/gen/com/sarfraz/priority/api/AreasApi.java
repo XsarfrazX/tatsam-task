@@ -46,7 +46,7 @@ public interface AreasApi {
         @ApiResponse(code = 404, message = "Not found", response = String.class) })
     @GetMapping(
         value = "/areas",
-        produces = { "application/json" }
+        produces = { "application/json" ,"text/plain" }
     )
     default ResponseEntity<List<Area>> areasGet() {
         getRequest().ifPresent(request -> {
@@ -80,7 +80,7 @@ public interface AreasApi {
         @ApiResponse(code = 422, message = "Unprocessable entity in case area already exists", response = String.class) })
     @PostMapping(
         value = "/areas",
-        produces = { "application/json" },
+        produces = { "application/json", "text/plain" },
         consumes = { "application/json" }
     )
     default ResponseEntity<String> areasPost(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Area area) {

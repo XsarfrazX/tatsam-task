@@ -23,7 +23,7 @@ public class UserPriorityService {
      * @param userPriorities: User with priority for areas and satisfaction
      * @return http response code
      */
-    Integer addUserPriority(User userPriorities) {
+   public Integer addUserPriority(User userPriorities) {
 
         UserPriority userPriority = new UserPriority(userPriorities.getUsername(), userPriorities.getPriorityAreas());
 
@@ -47,7 +47,7 @@ public class UserPriorityService {
 
     }
 
-    Optional<User> getUser(String userName) {
+   public Optional<User> getUser(String userName) {
         Optional<UserPriority> savedUserPriority = userPriorityRepoInterface.getUserPriority(userName);
 
         if(savedUserPriority.isPresent()) {

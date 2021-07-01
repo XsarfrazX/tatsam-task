@@ -33,6 +33,10 @@ public class PriorityAreaService {
                 priorityAreaDTO.add(new Area().name(priorityArea.getName()));
 
             }
+            if(priorityAreaDTO.size() == 0) {
+                log.error("Priority area count is 0");
+                return Optional.empty();
+            }
             log.info("Found priority areas in DB with count: {}", priorityAreaDTO.size());
             return Optional.of(priorityAreaDTO);
 
