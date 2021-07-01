@@ -3,9 +3,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-package com.sarfraz.api;
+package com.sarfraz.priority.api;
 
-import com.sarfraz.model.User;
+import com.sarfraz.priority.model.User;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,10 +18,12 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
+import javax.websocket.server.PathParam;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-07-01T20:23:22.811265+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-07-01T20:49:10.499858+05:30[Asia/Calcutta]")
 @Validated
 @Api(value = "users", description = "the users API")
 public interface UsersApi {
@@ -74,7 +76,7 @@ public interface UsersApi {
         value = "/users/{username}",
         produces = { "application/json" }
     )
-    default ResponseEntity<List<User>> usersUsernameGet() {
+    default ResponseEntity<User> usersUsernameGet(@PathVariable String username) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {

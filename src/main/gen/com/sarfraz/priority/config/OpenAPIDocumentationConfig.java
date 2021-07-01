@@ -17,20 +17,20 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.servlet.ServletContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-07-01T20:23:22.811265+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-07-01T20:49:10.499858+05:30[Asia/Calcutta]")
 @Configuration
 @EnableSwagger2
 public class OpenAPIDocumentationConfig {
 
     ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("Tatsam \&quot;Priority\&quot; API")
+            .title("Tatsam Priority API")
             .description("Task as a part of Tastasam BE hiring process")
             .license("")
             .licenseUrl("http://unlicense.org")
             .termsOfServiceUrl("")
             .version("0.0.1")
-            .contact(new Contact("","", ""))
+            .contact(new Contact("","", "ssarfraz76@gmail.com"))
             .build();
     }
 
@@ -38,7 +38,7 @@ public class OpenAPIDocumentationConfig {
     public Docket customImplementation(ServletContext servletContext, @Value("${openapi.tatsamPriority.base-path:/v1}") String basePath) {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                    .apis(RequestHandlerSelectors.basePackage("com.sarfraz.api"))
+                    .apis(RequestHandlerSelectors.basePackage("com.sarfraz.priority.api"))
                     .build()
                 .pathProvider(new BasePathAwareRelativePathProvider(servletContext, basePath))
                 .directModelSubstitute(java.time.LocalDate.class, java.sql.Date.class)

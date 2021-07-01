@@ -1,4 +1,4 @@
-package com.sarfraz.model;
+package com.sarfraz.priority.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 /**
  * Area
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-07-01T20:23:22.811265+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-07-01T20:49:10.499858+05:30[Asia/Calcutta]")
 public class Area   {
   @JsonProperty("name")
   private String name;

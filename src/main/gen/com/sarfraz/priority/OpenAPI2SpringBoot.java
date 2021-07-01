@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.sarfraz.priority", "com.sarfraz.api" , "com.sarfraz.priority.config"})
+@ComponentScan(basePackages = {"com.sarfraz.priority", "com.sarfraz.priority.api" , "com.sarfraz.priority.config"})
 public class OpenAPI2SpringBoot implements CommandLineRunner {
 
     @Override

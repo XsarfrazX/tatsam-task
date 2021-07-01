@@ -1,13 +1,12 @@
 openapi: 3.0.0
 
 info:
-  title: Tatsam "Priority" API
+  title: Tatsam Priority API
   description: Task as a part of Tastasam BE hiring process
   version: 0.0.1
-
-contact:
-  name: Sarfraz Siddiqui
-  email: ssarfraz76@gmail.com
+  contact:
+    name: Sarfraz Siddiqui
+    email: ssarfraz76@gmail.com
 
 servers:
   - url: /v1
@@ -26,7 +25,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/Area'
+                  $ref: '#/components/schemas/Area'
         '500':
           description: Internal Server error if service is not functioning
           content:
@@ -90,7 +89,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schema/User'
+              $ref: '#/components/schemas/User'
       responses:
         '201':
           description: Created a user priority
@@ -121,7 +120,7 @@ paths:
   /users/{username}:
     get:
       summary: Return user's priority details
-      paramters:
+      parameters:
         - name: username
           in: path
           required: true
@@ -134,9 +133,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/User'
+                $ref: '#/components/schemas/User'
         '500':
           description: Internal Server error if service is not functioning
           content:
