@@ -1,0 +1,16 @@
+.openapi-generator-ignore
+README.md
+pom.xml
+src/main/gen/com/sarfraz/api/ApiUtil.java
+src/main/gen/com/sarfraz/api/AreasApi.java
+src/main/gen/com/sarfraz/api/AreasApiController.java
+src/main/gen/com/sarfraz/api/UsersApi.java
+src/main/gen/com/sarfraz/api/UsersApiController.java
+src/main/gen/com/sarfraz/model/Area.java
+src/main/gen/com/sarfraz/model/AreaPriority.java
+src/main/gen/com/sarfraz/model/User.java
+src/main/gen/com/sarfraz/priority/OpenAPI2SpringBoot.java
+src/main/gen/com/sarfraz/priority/RFC3339DateFormat.java
+src/main/gen/com/sarfraz/priority/config/HomeController.java
+src/main/gen/com/sarfraz/priority/config/OpenAPIDocumentationConfig.java
+src/main/resources/application.properties

@@ -1,0 +1,207 @@
+openapi: 3.0.0
+
+info:
+  title: Tatsam "Priority" API
+  description: Task as a part of Tastasam BE hiring process
+  version: 0.0.1
+
+contact:
+  name: Sarfraz Siddiqui
+  email: ssarfraz76@gmail.com
+
+servers:
+  - url: /v1
+    description: Base path of the server specifying version 1 of APIs
+
+
+paths:
+  /areas:
+    get:
+      summary: Return a list of all priority areas
+      responses:
+        '200':
+          description: An Array of Priority areas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/Area'
+        '500':
+          description: Internal Server error if service is not functioning
+          content:
+            application/json:
+              schema:
+                type: string           
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: string    
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                type: string
+
+    post:
+      summary: Add a priority area in the database
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Area'
+      responses:
+        '201':
+          description: Created a priority area
+          content:
+            application/json:
+              schema:
+                type: string
+        '500':
+          description: Internal Server error if service is not functioning
+          content:
+            application/json:
+              schema:
+                type: string           
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: string    
+        '422':
+          description: Unprocessable entity in case area already exists
+          content:
+            application/json:
+              schema:
+                type: string
+
+
+
+  /users:
+    post:
+      summary: Add priority areas and satisfaction for a username
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schema/User'
+      responses:
+        '201':
+          description: Created a user priority
+          content:
+            application/json:
+              schema:
+                type: string
+        '500':
+          description: Internal Server error if service is not functioning
+          content:
+            application/json:
+              schema:
+                type: string           
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: string    
+        '422':
+          description: Unprocessable entity in case user's priority already exists
+          content:
+            application/json:
+              schema:
+                type: string     
+                
+                
+  /users/{username}:
+    get:
+      summary: Return user's priority details
+      paramters:
+        - name: username
+          in: path
+          required: true
+          description: The Username of user to get the priorty list of.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A users's priority
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/User'
+        '500':
+          description: Internal Server error if service is not functioning
+          content:
+            application/json:
+              schema:
+                type: string           
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: string    
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                type: string                
+components:
+  schemas:
+    Area:
+      type: object
+      required: 
+        - name
+      properties:
+        name:
+          type: string
+    
+    AreaPriority:
+      type: object
+      required:
+        - area
+        - priority
+        - statisfaction
+      properties:
+        area:
+          $ref: '#/components/schemas/Area'
+        priority:
+          type: integer
+        statisfaction:
+          type: integer
+          enum:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+
+    User:
+      type: object
+      required:
+        - username
+        - priorityAreas
+      properties:
+        username:
+          type: string
+        priorityAreas:
+          type: array
+          items:
+            $ref: '#/components/schemas/AreaPriority'
+        
+
+
+    
+
+
+
+
