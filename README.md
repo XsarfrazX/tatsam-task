@@ -22,14 +22,14 @@ The API server will be avaiable at localhost:8080 (it has a nice swagger UI)
 
 ## Examples 
 
-1. Get all priority areas in the database( Note: The DB is not filled with any piority area at start. Use the next API to add any priority areas)
+1. Get all priority areas in the database( Note: The DB is not filled with any piority area at start. Use the next API to add any priority areas)<br>
    ```curl -X GET "http://localhost:8080/v1/areas" -H  "accept: application/json" ```
 2. Add a priority area to the databse
    ``` curl -X POST "http://localhost:8080/v1/areas" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{  \"name\": \"mycoolpriorityarea\"}" ```
 
-3. Add a user's priorities with satisfaction (To restrict access to admin, Oauth2 or other Auth mechanism can be added)
-**Note:** Priority to an area can be assigned from **1** to N(max priority area count).
+3. Add a user's priorities with satisfaction (To restrict access to admin, Oauth2 or other Auth mechanism can be added)<br>
+**Note:** Priority to an area can be assigned from **1** to N(max priority area count).<br>
 ``` curl -X POST "http://localhost:8080/v1/users" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{  \"priorityAreas\": [    {      \"area\": {        \"name\": \"mycoolpriorityarea\"      },      \"priority\": 1,      \"statisfaction\": \"3\"    }  ],  \"username\": \"cooluser\"}" ```
 
-4. Get a User's priority details by username
+4. Get a User's priority details by username<br>
    ``` curl -X GET "http://localhost:8080/v1/users/cooluser" -H  "accept: application/json" ```
