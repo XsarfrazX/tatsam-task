@@ -172,6 +172,24 @@ public class UsersApiController implements UsersApi {
             }
         }
 
+
+        // Check for duplicate priority area names and priorities
+        List<Integer> priorities = user.getPriorityAreas().stream().map(area -> area.getPriority()).collect(Collectors.toList());
+        List<String> priorityAreas = user.getPriorityAreas().stream().map(area -> area.getArea().getName()).collect(Collectors.toList());
+        if(priorities.size() != new HashSet<Integer>(priorities).size()) {
+            errorMsg = "Duplicate priority values";
+            log.error(errorMsg);
+            result.put(false, errorMsg);
+            return result;
+        }
+        if(priorityAreas.size() != new HashSet<String >(priorityAreas).size()) {
+            errorMsg = "Duplicate priority area names";
+            log.error(errorMsg);
+            result.put(false, errorMsg);
+            return result;
+        }
+
+
         result.put(true, "valid");
         return result;
 
