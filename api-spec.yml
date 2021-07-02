@@ -173,6 +173,7 @@ components:
           $ref: '#/components/schemas/Area'
         priority:
           type: integer
+          minimum: 1
         statisfaction:
           type: integer
           enum:

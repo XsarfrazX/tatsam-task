@@ -80,7 +80,7 @@ public interface UsersApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"priorityAreas\" : [ { \"area\" : { \"name\" : \"name\" }, \"statisfaction\" : 6, \"priority\" : 0 }, { \"area\" : { \"name\" : \"name\" }, \"statisfaction\" : 6, \"priority\" : 0 } ], \"username\" : \"username\" }";
+                    String exampleString = "{ \"priorityAreas\" : [ { \"area\" : { \"name\" : \"name\" }, \"statisfaction\" : 6, \"priority\" : 1 }, { \"area\" : { \"name\" : \"name\" }, \"statisfaction\" : 6, \"priority\" : 0 } ], \"username\" : \"username\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
